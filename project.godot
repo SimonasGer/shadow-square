@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 project/assembly_name="Shadow Square"
 
+[global_group]
+
+Coins=""
+Switches=""
+
 [input]
 
 move_up={

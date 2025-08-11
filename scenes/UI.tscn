@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://ikrq64fx7pnl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll0sn"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="UI" type="CanvasGroup"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4.76436, 3.17625)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ll0sn")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(0.623908, 1.28823)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Coins: 0/0
+Switches: 0/0"
