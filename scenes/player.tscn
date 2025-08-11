@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpeut6hbfe1dd"]
+
+[ext_resource type="Texture2D" uid="uid://b16gp862of8dj" path="res://sprites/PlayerSolid.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://b0u6llpvbhahy" path="res://scripts/Player.cs" id="1_g2els"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 7.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3vyb7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
