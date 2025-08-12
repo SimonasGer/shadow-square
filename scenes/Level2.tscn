@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://uyhqecfh3bjm" path="res://scripts/WinningZone.cs" id="6_wd6ad"]
 [ext_resource type="PackedScene" uid="uid://ikrq64fx7pnl" path="res://scenes/UI.tscn" id="7_cd1f0"]
 [ext_resource type="PackedScene" uid="uid://b7gexa68av2wy" path="res://scenes/Switch.tscn" id="8_k83s3"]
-[ext_resource type="PackedScene" uid="uid://o0o8fn8wwf6b" path="res://scenes/Coin.tscn" id="9_2jdof"]
+[ext_resource type="PackedScene" uid="uid://bvf27av8kh3rc" path="res://scenes/Enemy.tscn" id="9_0jmjk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rus8k"]
 texture = ExtResource("3_rcugv")
@@ -47,7 +47,7 @@ sources/1 = SubResource("TileSetAtlasSource_4nkto")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xbjy"]
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("player", "walls")]
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("player", "walls")]
 script = ExtResource("1_0jmjk")
 player = NodePath("Player")
 gateCords = Vector2i(0, -7)
@@ -69,7 +69,7 @@ tile_set = SubResource("TileSet_fcfvj")
 position = Vector2(16, -248)
 scale = Vector2(1.61702, 1.52213)
 script = ExtResource("6_wd6ad")
-nextLevelName = "Level2"
+nextLevelName = "Level3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinningZone"]
 shape = SubResource("RectangleShape2D_5xbjy")
@@ -77,12 +77,19 @@ shape = SubResource("RectangleShape2D_5xbjy")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("7_cd1f0")]
+levelName = "Level2"
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_0jmjk")]
+position = Vector2(152, -112)
+startPosition = Vector2i(-120, -112)
+endPosition = Vector2i(152, -112)
+player = NodePath("../Player")
 
 [node name="Switch" parent="." instance=ExtResource("8_k83s3")]
 position = Vector2(64, -176)
+levelName = "Level2"
 
-[node name="Coin" parent="." instance=ExtResource("9_2jdof")]
-position = Vector2(-88, -112)
-
-[node name="Coin2" parent="." instance=ExtResource("9_2jdof")]
-position = Vector2(80, -112)
+[node name="Switch2" parent="." instance=ExtResource("8_k83s3")]
+position = Vector2(104, -176)
+levelName = "Level2"
+real = false

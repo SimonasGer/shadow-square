@@ -19,6 +19,6 @@ public partial class Ui : CanvasGroup
 
 		var levelManager = GetTree().Root.GetNode<Node2D>(levelName);
 
-		label.Text = $"Coins: {levelManager.Get("collectedCoins")}/{levelManager.Get("coinCount")}\nSwitches: {levelManager.Get("switchedSwitches")}/{levelManager.Get("switchCount")}";
+		label.Text = $"Coins: {levelManager.Get("collectedCoins")}/{levelManager.Get("coinCount")}\nSwitches: {levelManager.Get("allSwitchedSwitches")}/{levelManager.Get("switchCount")}";
 	}
 }
