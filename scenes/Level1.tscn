@@ -49,8 +49,9 @@ sources/1 = SubResource("TileSetAtlasSource_4nkto")
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_svatc")
 player = NodePath("Player")
+nextScene = "Level2"
 
-[node name="Player" parent="." instance=ExtResource("1_76388")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_76388")]
 position = Vector2(16, -16)
 
 [node name="Walls" type="TileMapLayer" parent="."]

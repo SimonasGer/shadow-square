@@ -1,22 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://ikrq64fx7pnl"]
+[gd_scene load_steps=3 format=3 uid="uid://ikrq64fx7pnl"]
+
+[ext_resource type="Script" uid="uid://bbmswuoiuk62" path="res://scripts/Ui.cs" id="1_dj8aq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll0sn"]
 bg_color = Color(1, 1, 1, 1)
 
-[node name="UI" type="CanvasGroup"]
+[node name="UI" type="CanvasGroup" node_paths=PackedStringArray("label")]
+script = ExtResource("1_dj8aq")
+label = NodePath("Panel/Label")
+levelName = "Level1"
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(4.76436, 3.17625)
+scale = Vector2(4.76436, 3.1849)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ll0sn")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-scale = Vector2(0.623908, 1.28823)
+offset_right = 63.0
+offset_bottom = 31.0
+scale = Vector2(0.13802, 0.299304)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 46
 text = "Coins: 0/0
 Switches: 0/0"

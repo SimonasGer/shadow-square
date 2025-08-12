@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7gexa68av2wy"]
+[gd_scene load_steps=5 format=3 uid="uid://b7gexa68av2wy"]
 
 [ext_resource type="Texture2D" uid="uid://c3h4m58cu47wr" path="res://sprites/SwitchOff.png" id="1_cajtl"]
+[ext_resource type="Script" uid="uid://dyr73836cypdj" path="res://scripts/Switch.cs" id="1_rsovi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rsovi"]
 size = Vector2(32, 4)
@@ -9,6 +10,7 @@ size = Vector2(32, 4)
 radius = 17.0
 
 [node name="Switch" type="CharacterBody2D" groups=["Switches"]]
+script = ExtResource("1_rsovi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_cajtl")

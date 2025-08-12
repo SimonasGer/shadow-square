@@ -2,7 +2,7 @@ using Godot;
 
 public partial class Player : CharacterBody2D
 {
-	[Export] public float Speed = 220f;
+	[Export] public float speed = 220f;
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 dir = Vector2.Zero;
@@ -12,7 +12,7 @@ public partial class Player : CharacterBody2D
 		if (Input.IsActionPressed("move_down")) dir.Y += 1;
 		if (Input.IsActionPressed("move_up")) dir.Y -= 1;
 
-		Velocity = dir.Normalized() * Speed;
+		Velocity = dir.Normalized() * speed;
 		MoveAndSlide();
 	}
 }
