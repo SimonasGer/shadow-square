@@ -5,7 +5,8 @@ public partial class LevelManager : Node2D
 {
 	private int coinCount = 0, collectedCoins = 0, switchCount = 0, switchedSwitches = 0;
 	[Export] public CharacterBody2D player;
-	[Export] public string nextScene;
+	[Export] public Vector2I gateCords;
+	[Export] public TileMapLayer walls;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -21,7 +22,7 @@ public partial class LevelManager : Node2D
 	{
 		if (collectedCoins == coinCount && switchedSwitches == switchCount)
 		{
-
+			walls.SetCell(gateCords, -1);
 		}
 	}
 }
