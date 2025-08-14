@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cinnp1x7ox7q4"]
+
+[ext_resource type="Script" uid="uid://br6hx3l25fxrx" path="res://scripts/Menu.cs" id="1_xdvgc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lumdm"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Menu" type="CanvasGroup"]
+scale = Vector2(0.995352, 1)
+script = ExtResource("1_xdvgc")
+
+[node name="Panel" type="Panel" parent="."]
+theme_override_styles/panel = SubResource("StyleBoxFlat_lumdm")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 176.0
+offset_right = 1094.0
+offset_bottom = 453.0
+theme_override_font_sizes/font_size = 100
+text = "Press SPACE to START
+Press ESC to QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
