@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://hrq7dnqgrckd"]
+
+[ext_resource type="Script" uid="uid://c8vhk8by5v2cq" path="res://scripts/ShadowBar.cs" id="1_5q55g"]
+
+[node name="ShadowBar" type="HSlider"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 1.0
+step = 0.01
+script = ExtResource("1_5q55g")

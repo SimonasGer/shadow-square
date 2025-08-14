@@ -6,7 +6,8 @@ public partial class Enemy : CharacterBody2D
 {
 	[Export] public Vector2I startPosition;
 	[Export] public Vector2I endPosition;
-	[Export] public Node player;
+	private Player player;
+
 	private bool movingToEnd = true;
 	private float speed = 10.0f;
 	private Area2D area2D;
@@ -17,6 +18,7 @@ public partial class Enemy : CharacterBody2D
 	{
 		Position = startPosition;
 		area2D = GetNode<Area2D>("Area2D");
+		player = GetTree().GetNodesInGroup("Player").FirstOrDefault() as Player;
 	}
 	private void MoveTowards(double delta)
 	{
@@ -34,7 +36,7 @@ public partial class Enemy : CharacterBody2D
 	public override void _Process(double delta)
 	{
 		MoveTowards(delta);
-		if (area2D.GetOverlappingBodies().Contains(player))
+		if (area2D.GetOverlappingBodies().Contains(player) && player.isShadow == false)
 		{
 			GetTree().ReloadCurrentScene();
 		}
