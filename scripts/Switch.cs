@@ -29,7 +29,7 @@ public partial class Switch : CharacterBody2D
 			{
 				isOn = true;
 				sprite.Texture = GD.Load<Texture2D>("res://sprites/SwitchOn.png");
-
+				player.switchSfx.Play();
 				if (real)
 				{
 					levelManager?.Set("realSwitchedSwitches", (int)levelManager.Get("realSwitchedSwitches") + 1);
@@ -45,6 +45,7 @@ public partial class Switch : CharacterBody2D
 			{
 				isOn = false;
 				sprite.Texture = GD.Load<Texture2D>("res://sprites/SwitchOff.png");
+				player.switchSfx.Play();
 				if (real)
 				{
 					levelManager?.Set("realSwitchedSwitches", (int)levelManager.Get("realSwitchedSwitches") - 1);

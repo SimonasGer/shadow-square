@@ -5,7 +5,7 @@ using System.Linq;
 public partial class LevelManager : Node2D
 {
 	private int coinCount = 0, collectedCoins = 0, switchCount = 0, allSwitchedSwitches = 0, realSwitchedSwitches = 0;
-	[Export] public CharacterBody2D player;
+	[Export] public Player player;
 	[Export] public Vector2I gateCords;
 	[Export] public TileMapLayer walls;
 	private int gate;
@@ -32,10 +32,12 @@ public partial class LevelManager : Node2D
 		if (collectedCoins == coinCount && allSwitchedSwitches == switchCount && realSwitchedSwitches == switchCount)
 		{
 			walls.SetCell(gateCords, -1);
+			player.gateSfx.Play();
 		}
 		else
 		{
 			walls.SetCell(gateCords, gate, gateAtlas, gateAlt);
+			player.gateSfx.Play();
 		}
 	}
 }

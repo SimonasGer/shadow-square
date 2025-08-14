@@ -10,6 +10,7 @@ scale = Vector2(0.995352, 1)
 script = ExtResource("1_xdvgc")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 theme_override_styles/panel = SubResource("StyleBoxFlat_lumdm")
 
 [node name="Label" type="Label" parent="Panel"]

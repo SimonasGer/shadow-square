@@ -18,11 +18,15 @@ public partial class Coin : CharacterBody2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (area2D.GetOverlappingBodies().Contains(player)  && player.isShadow == false)
+		if (area2D.GetOverlappingBodies().Contains(player) && player.isShadow == false)
 		{
-			var levelManager = GetTree().Root.GetNode<Node2D>(levelName);
+			var lm = GetTree().CurrentScene as LevelManager;
+			player.coinsSfx.Play();
+			var levelManager = GetTree().Root.GetNode<LevelManager>(levelName);
 			levelManager?.Set("collectedCoins", (int)levelManager.Get("collectedCoins") + 1);
+			lm?.OpenClose();
 			QueueFree();
 		}
 	}
+
 }

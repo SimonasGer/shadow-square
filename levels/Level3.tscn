@@ -1,19 +1,19 @@
-[gd_scene load_steps=19 format=4 uid="uid://dol5khjg7fxd6"]
+[gd_scene load_steps=19 format=4 uid="uid://dj1mw3lx0fta7"]
 
-[ext_resource type="PackedScene" uid="uid://cpeut6hbfe1dd" path="res://scenes/Player.tscn" id="1_76388"]
-[ext_resource type="Script" uid="uid://cwmy1jtxjdbi1" path="res://scripts/LevelManager.cs" id="1_svatc"]
-[ext_resource type="Texture2D" uid="uid://budpjlsvp22rt" path="res://sprites/Wall.png" id="2_svatc"]
-[ext_resource type="Texture2D" uid="uid://bvfhn70dk1muc" path="res://sprites/Gate.png" id="3_ecr63"]
-[ext_resource type="Texture2D" uid="uid://cqkunspr83kxd" path="res://sprites/Background.png" id="4_n34uq"]
-[ext_resource type="PackedScene" uid="uid://ikrq64fx7pnl" path="res://scenes/UI.tscn" id="5_kbo48"]
-[ext_resource type="PackedScene" uid="uid://o0o8fn8wwf6b" path="res://scenes/Coin.tscn" id="6_4dyl1"]
-[ext_resource type="Script" uid="uid://uyhqecfh3bjm" path="res://scripts/WinningZone.cs" id="6_n34uq"]
-[ext_resource type="PackedScene" uid="uid://hrq7dnqgrckd" path="res://scenes/ShadowBar.tscn" id="8_kbo48"]
-[ext_resource type="PackedScene" uid="uid://b7gexa68av2wy" path="res://scenes/Switch.tscn" id="8_n34uq"]
-[ext_resource type="PackedScene" uid="uid://cinnp1x7ox7q4" path="res://scenes/Menu.tscn" id="9_4dyl1"]
+[ext_resource type="Script" uid="uid://cwmy1jtxjdbi1" path="res://scripts/LevelManager.cs" id="1_mppvi"]
+[ext_resource type="PackedScene" uid="uid://cpeut6hbfe1dd" path="res://scenes/Player.tscn" id="2_uog4x"]
+[ext_resource type="Texture2D" uid="uid://budpjlsvp22rt" path="res://sprites/Wall.png" id="3_fqqs4"]
+[ext_resource type="Texture2D" uid="uid://bvfhn70dk1muc" path="res://sprites/Gate.png" id="4_52gcn"]
+[ext_resource type="Texture2D" uid="uid://cqkunspr83kxd" path="res://sprites/Background.png" id="5_ws61b"]
+[ext_resource type="Script" uid="uid://uyhqecfh3bjm" path="res://scripts/WinningZone.cs" id="6_m7lwk"]
+[ext_resource type="PackedScene" uid="uid://ikrq64fx7pnl" path="res://scenes/UI.tscn" id="7_gtknj"]
+[ext_resource type="PackedScene" uid="uid://hrq7dnqgrckd" path="res://scenes/ShadowBar.tscn" id="8_t3rlc"]
+[ext_resource type="PackedScene" uid="uid://cinnp1x7ox7q4" path="res://scenes/Menu.tscn" id="9_77jv8"]
+[ext_resource type="PackedScene" uid="uid://bvf27av8kh3rc" path="res://scenes/Enemy.tscn" id="10_w4yws"]
+[ext_resource type="PackedScene" uid="uid://b7gexa68av2wy" path="res://scenes/Switch.tscn" id="11_en7ln"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rus8k"]
-texture = ExtResource("2_svatc")
+texture = ExtResource("3_fqqs4")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -25,7 +25,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5xbjy"]
-texture = ExtResource("3_ecr63")
+texture = ExtResource("4_52gcn")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -4, 16, -4, 16, 4, -16, 4)
@@ -39,7 +39,7 @@ sources/0 = SubResource("TileSetAtlasSource_rus8k")
 sources/1 = SubResource("TileSetAtlasSource_5xbjy")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nkto"]
-texture = ExtResource("4_n34uq")
+texture = ExtResource("5_ws61b")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
@@ -49,13 +49,13 @@ sources/1 = SubResource("TileSetAtlasSource_4nkto")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xbjy"]
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("player", "walls")]
-script = ExtResource("1_svatc")
+[node name="Level3" type="Node2D" node_paths=PackedStringArray("player", "walls")]
+script = ExtResource("1_mppvi")
 player = NodePath("Player")
 gateCords = Vector2i(0, -7)
 walls = NodePath("Walls")
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_76388")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_uog4x")]
 position = Vector2(16, -16)
 
 [node name="Walls" type="TileMapLayer" parent="."]
@@ -70,25 +70,32 @@ tile_set = SubResource("TileSet_fcfvj")
 [node name="WinningZone" type="Area2D" parent="."]
 position = Vector2(16, -248)
 scale = Vector2(1.61702, 1.52213)
-script = ExtResource("6_n34uq")
-nextLevelName = "Level2"
+script = ExtResource("6_m7lwk")
+nextLevelName = "Level4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinningZone"]
 shape = SubResource("RectangleShape2D_5xbjy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("5_kbo48")]
+[node name="UI" parent="CanvasLayer" instance=ExtResource("7_gtknj")]
+levelName = "Level3"
 
-[node name="ShadowBar" parent="CanvasLayer" instance=ExtResource("8_kbo48")]
+[node name="ShadowBar" parent="CanvasLayer" instance=ExtResource("8_t3rlc")]
 
-[node name="Menu" parent="CanvasLayer" instance=ExtResource("9_4dyl1")]
+[node name="Menu" parent="CanvasLayer" instance=ExtResource("9_77jv8")]
 
-[node name="Switch" parent="." instance=ExtResource("8_n34uq")]
+[node name="Enemy" parent="." instance=ExtResource("10_w4yws")]
+position = Vector2(152, -112)
+startPosition = Vector2i(-120, -112)
+endPosition = Vector2i(152, -112)
+
+[node name="Switch" parent="." instance=ExtResource("11_en7ln")]
 position = Vector2(64, -176)
+levelName = "Level3"
 
-[node name="Coin" parent="." instance=ExtResource("6_4dyl1")]
-position = Vector2(-88, -112)
-
-[node name="Coin2" parent="." instance=ExtResource("6_4dyl1")]
-position = Vector2(80, -112)
+[node name="Switch2" parent="." instance=ExtResource("11_en7ln")]
+position = Vector2(-112, -104)
+rotation = 4.71239
+levelName = "Level3"
+real = false

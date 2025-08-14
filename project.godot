@@ -13,6 +13,8 @@ config_version=5
 config/name="Shadow Square"
 run/main_scene="uid://dol5khjg7fxd6"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [display]
@@ -70,4 +72,4 @@ pause={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+environment/defaults/default_clear_color=Color(0.404511, 0.404511, 0.404511, 1)

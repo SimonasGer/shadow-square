@@ -17,7 +17,7 @@ public partial class WinningZone : Area2D
 	{
 		if (GetOverlappingBodies().Contains(player))
 		{
-			GetTree().ChangeSceneToFile($"res://scenes/{nextLevelName}.tscn");
+			GetTree().ChangeSceneToFile($"res://levels/{nextLevelName}.tscn");
 		}
 	}
 }

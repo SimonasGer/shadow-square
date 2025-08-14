@@ -4,6 +4,7 @@ public partial class Player : CharacterBody2D
 {
 	[Export] public float speed = 220.0f;
 	[Export] public float shadowDuration = 2.0f;
+	[Export] public AudioStreamPlayer gateSfx, coinsSfx, switchSfx, shadowSfx, deathSfx;
 	public bool isShadow = false;
 	private bool cooldown = false;
 	public float shadowTime = 0.0f;
@@ -26,10 +27,16 @@ public partial class Player : CharacterBody2D
 
 		if (Input.IsActionPressed("shadow") && shadowTime <= shadowDuration && !cooldown)
 		{
-			if (isShadow == false) isShadow = true;
+
+			if (isShadow == false)
+			{
+				isShadow = true;
+				shadowSfx.Play();
+			}
 			if (sprite2D.Texture == GD.Load<Texture2D>("res://sprites/PlayerSolid.png")) sprite2D.Texture = GD.Load<Texture2D>("res://sprites/PlayerShadow.png");
 			shadowTime += (float)delta;
 			GD.Print(shadowTime);
+
 			if (shadowTime >= shadowDuration && !cooldown)
 			{
 				cooldown = true;
@@ -37,7 +44,11 @@ public partial class Player : CharacterBody2D
 		}
 		else if (shadowTime >= 0.0f)
 		{
-			if (isShadow == true) isShadow = false;
+			if (isShadow == true)
+			{
+				isShadow = false;
+				shadowSfx.Play();
+			}
 			if (sprite2D.Texture == GD.Load<Texture2D>("res://sprites/PlayerShadow.png")) sprite2D.Texture = GD.Load<Texture2D>("res://sprites/PlayerSolid.png");
 			shadowTime -= (float)delta;
 			if (shadowTime <= 0.0f)
@@ -47,7 +58,6 @@ public partial class Player : CharacterBody2D
 			}
 
 		}
-
 		Velocity = dir.Normalized() * speed;
 		MoveAndSlide();
 	}

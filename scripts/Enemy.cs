@@ -9,7 +9,7 @@ public partial class Enemy : CharacterBody2D
 	private Player player;
 
 	private bool movingToEnd = true;
-	private float speed = 10.0f;
+	[Export] public float speed = 300.0f;
 	private Area2D area2D;
 
 
@@ -36,8 +36,15 @@ public partial class Enemy : CharacterBody2D
 	public override void _Process(double delta)
 	{
 		MoveTowards(delta);
-		if (area2D.GetOverlappingBodies().Contains(player) && player.isShadow == false)
+		if (area2D.GetOverlappingBodies().Contains(player) && !player.isShadow)
 		{
+			var sfx = player.deathSfx;
+			sfx.Reparent(GetTree().Root);
+			sfx.ProcessMode = ProcessModeEnum.Always;
+
+			sfx.Finished += () => sfx.QueueFree();
+			sfx.Play();
+
 			GetTree().ReloadCurrentScene();
 		}
 	}

@@ -9,7 +9,6 @@ public partial class Menu : CanvasGroup
 	public override void _Ready()
 	{
 		ProcessMode = ProcessModeEnum.Always;
-		GetTree().Paused = true;
 		panel = GetNode<Panel>("Panel");
 		var label = GetNode<Label>("Panel/Label");
 		panel.Size = GetViewport().GetVisibleRect().Size;
@@ -24,7 +23,7 @@ public partial class Menu : CanvasGroup
 			panel.Visible = false;
 			GetViewport().SetInputAsHandled();
 		}
-		else if (@event.IsActionPressed("pause") && !GetTree().Paused) //now just this doesnt work
+		else if (@event.IsActionPressed("pause") && !GetTree().Paused)
 		{
 			panel.Visible = true;
 			GetTree().Paused = true;

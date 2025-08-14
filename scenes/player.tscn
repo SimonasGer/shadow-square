@@ -1,14 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpeut6hbfe1dd"]
+[gd_scene load_steps=9 format=3 uid="uid://cpeut6hbfe1dd"]
 
 [ext_resource type="Texture2D" uid="uid://b16gp862of8dj" path="res://sprites/PlayerSolid.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://b0u6llpvbhahy" path="res://scripts/Player.cs" id="1_g2els"]
+[ext_resource type="AudioStream" uid="uid://bdy636mxg3gpr" path="res://sfx/open-doors-114615.mp3" id="3_cw2d6"]
+[ext_resource type="AudioStream" uid="uid://p80xdi2m7h21" path="res://sfx/retro-spell-sfx-85574.mp3" id="4_khinc"]
+[ext_resource type="AudioStream" uid="uid://c0kujccokaskj" path="res://sfx/coin-recieved-230517.mp3" id="5_bruh7"]
+[ext_resource type="AudioStream" uid="uid://bj6uj55qlqcd6" path="res://sfx/retro-video-game-death-95730.mp3" id="6_6eyey"]
+[ext_resource type="AudioStream" uid="uid://c6ivykeo04qce" path="res://sfx/noisy-switch-166327.mp3" id="7_d3wef"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 7.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gateSfx", "coinsSfx", "switchSfx", "shadowSfx", "deathSfx")]
 z_index = 2
 script = ExtResource("1_g2els")
+gateSfx = NodePath("GateSfx")
+coinsSfx = NodePath("CoinSfx")
+switchSfx = NodePath("SwitchSfx")
+shadowSfx = NodePath("ShadowSfx")
+deathSfx = NodePath("DeathSfx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_g2els")
@@ -18,3 +28,18 @@ texture = ExtResource("1_3vyb7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="GateSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cw2d6")
+
+[node name="ShadowSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_khinc")
+
+[node name="CoinSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bruh7")
+
+[node name="DeathSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6eyey")
+
+[node name="SwitchSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_d3wef")

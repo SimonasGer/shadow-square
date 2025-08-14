@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://o0o8fn8wwf6b"]
+[gd_scene load_steps=5 format=3 uid="uid://o0o8fn8wwf6b"]
 
 [ext_resource type="Script" uid="uid://8gakpx53mtag" path="res://scripts/Coin.cs" id="1_kyq3r"]
 [ext_resource type="Texture2D" uid="uid://bwrtpvviv7krc" path="res://sprites/Coin.png" id="1_owubc"]
+[ext_resource type="AudioStream" uid="uid://c0kujccokaskj" path="res://sfx/coin-recieved-230517.mp3" id="2_5twpi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_owubc"]
 radius = 5.0
@@ -17,3 +18,7 @@ texture = ExtResource("1_owubc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_owubc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5twpi")
+volume_db = 24.0
